@@ -7,13 +7,13 @@ import sys
 def calculate_risk_level(score):
     """Calcola il livello di rischio basandosi sul punteggio."""
     if score >= 20:
-        [cite_start]return "CRITICO"  # [cite: 19]
+        return "CRITICO"  # [cite: 19]
     elif 13 <= score <= 19:
-        [cite_start]return "ALTO"  # [cite: 19]
+        return "ALTO"  # [cite: 19]
     elif 8 <= score <= 12:
-        [cite_start]return "MEDIO"  # [cite: 19]
+        return "MEDIO"  # [cite: 19]
     else:
-        [cite_start]return "BASSO"  # [cite: 19]
+        return "BASSO"  # [cite: 19]
 
 def main(project_file):
     """Funzione principale per compilare il report."""

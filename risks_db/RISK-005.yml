@@ -1,44 +1,43 @@
-# risks_db/RISK-005.yml
-[cite_start]risk_id: "RISK-005" [cite: 42]
-[cite_start]asset: "Configurazione SSH" [cite: 42]
-[cite_start]vulnerability: "Le configurazioni standard aumentano la probabilità di un attaccante di avere successo." [cite: 42]
-[cite_start]threat_actor_vector: "Le configurazioni standard aumentano la probabilità di un attaccante di avere successo." [cite: 42]
+risk_id: "RISK-005"
+asset: "Configurazione SSH"
+vulnerability: "Le configurazioni standard aumentano la probabilità di un attaccante di avere successo."
+threat_actor_vector: "Le configurazioni standard aumentano la probabilità di un attaccante di avere successo."
 category: "Access Control"
 
 justification: |
-  [cite_start]Le configurazioni SSH standard aumentano significativamente la probabilità di successo per un attaccante[cite: 171]. 
+  Le configurazioni SSH standard aumentano significativamente la probabilità di successo per un attaccante.
   Il server risulta esposto su porta 22 con configurazioni predefinite che facilitano attacchi brute force e 
-  [cite_start]compromissioni del sistema[cite: 172].
+  compromissioni del sistema.
 
 mitigation:
-  [cite_start]treatment: "Mitigare" [cite: 170]
-  [cite_start]summary: "Disabilitare l'accesso root da SSH, impostare regole per indirizzi permessi, usare una chiave ellittica, cambiare la porta predefinita." [cite: 42]
+  treatment: "Mitigare"
+  summary: "Disabilitare l'accesso root da SSH, impostare regole per indirizzi permessi, usare una chiave ellittica, cambiare la porta predefinita."
   steps: |
-    [cite_start]È buona pratica eseguire un backup delle configurazioni critiche[cite: 173]:
-    [cite_start]`sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup.$(date +%Y%m%d_%H%M%S)` [cite: 174]
+    È buona pratica eseguire un backup delle configurazioni critiche:
+    `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup.$(date +%Y%m%d_%H%M%S)`
 
-    [cite_start]Creare una coppia di chiavi di autenticazione ellittiche (Ed25519)[cite: 175]:
-    [cite_start]`sudo mkdir -p /etc/ssh/hardened_keys` [cite: 176]
-    [cite_start]`sudo ssh-keygen -t ed25519 -f /etc/ssh/hardened_keys/ssh_host_ed25519_key -N ""` [cite: 177]
+    Creare una coppia di chiavi di autenticazione ellittiche (Ed25519):
+    `sudo mkdir -p /etc/ssh/hardened_keys`
+    `sudo ssh-keygen -t ed25519 -f /etc/ssh/hardened_keys/ssh_host_ed25519_key -N ""`
 
-    [cite_start]Creare un banner di avvertimento legale[cite: 180]:
-    [cite_start]`sudo nano /etc/ssh/ssh_banner.txt` [cite: 180]
+    Creare un banner di avvertimento legale:
+    `sudo nano /etc/ssh/ssh_banner.txt`
 
-    [cite_start]Aprire il file di configurazione `sudo nano /etc/ssh/sshd_config` [cite: 181] [cite_start]e apportare le seguenti modifiche[cite: 182]:
-    * [cite_start]Cambio porta da 22 a 2222[cite: 182].
-    * [cite_start]Disabilitare il root login[cite: 183].
-    * [cite_start]Restrizioni di accesso solo ad utenti permessi[cite: 184].
-    * [cite_start]Indicare il path per le chiavi ellittiche e il banner[cite: 185, 192].
-    * [cite_start]Impostare soluzioni di hardening (limite tentativi, sessioni, etc.)[cite: 186].
-    * [cite_start]Abilitare logging verbose[cite: 190].
+    Aprire il file di configurazione `sudo nano /etc/ssh/sshd_config` e apportare le seguenti modifiche:
+    * Cambio porta da 22 a 2222.
+    * Disabilitare il root login.
+    * Restrizioni di accesso solo ad utenti permessi.
+    * Indicare il path per le chiavi ellittiche e il banner.
+    * Impostare soluzioni di hardening (limite tentativi, sessioni, etc.).
+    * Abilitare logging verbose.
     
-    [cite_start]Verificare la correttezza della sintassi[cite: 193]:
-    [cite_start]`sudo sshd -t` [cite: 194]
+    Verificare la correttezza della sintassi:
+    `sudo sshd -t`
 
-    [cite_start]Riavviare il servizio SSH[cite: 197]:
-    [cite_start]`sudo systemctl reload ssh` [cite: 198]
+    Riavviare il servizio SSH:
+    `sudo systemctl reload ssh`
 
-    [cite_start]Una volta verificato il funzionamento, rimuovere la regola per la vecchia porta[cite: 200]:
-    [cite_start]`sudo ufw delete allow 22/tcp` [cite: 200]
+    Una volta verificato il funzionamento, rimuovere la regola per la vecchia porta:
+    `sudo ufw delete allow 22/tcp`
 
-    [cite_start]Per un'ulteriore protezione, installare e configurare fail2ban per bloccare tentativi di accesso falliti[cite: 201].
+    Per un'ulteriore protezione, installare e configurare fail2ban per bloccare tentativi di accesso falliti.

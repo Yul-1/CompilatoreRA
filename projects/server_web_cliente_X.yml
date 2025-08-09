@@ -15,6 +15,9 @@ risks:
   - id: "RISK-003"  # WAF
     probability: 5
     impact: 4
+  - id: "RISK-005"  # Configurazione Nginx
+    probability: 4
+    impact: 4
   - id: "RISK-009"  # Password Policy
     probability: 3
     impact: 4
