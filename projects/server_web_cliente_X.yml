@@ -1,0 +1,21 @@
+project_name: "Risk Assessment E-commerce Cliente"
+objective: "Identificare e mitigare i rischi di sicurezza del nuovo server e-commerce per conformità PCI-DSS e GDPR."
+scope: "Server Debian 12 con Nginx, MariaDB, e applicativo Magento."
+author: "Andrea Emanuele Peluso"
+date: "08/08/2025"
+
+# Elenco dei rischi identificati per questo specifico progetto
+risks:
+  - id: "RISK-001"  # Firewall
+    probability: 5
+    impact: 5
+  - id: "RISK-002"  # Backup
+    probability: 4
+    impact: 5
+  - id: "RISK-003"  # WAF
+    probability: 5
+    impact: 4
+  - id: "RISK-009"  # Password Policy
+    probability: 3
+    impact: 4
+  # ... e così via per ogni altro rischio pertinente
