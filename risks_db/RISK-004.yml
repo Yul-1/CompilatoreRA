@@ -1,0 +1,17 @@
+risk_id: "RISK-004"
+asset: "Backup Dati"
+vulnerability: "Backup non cifrati o non testati."
+threat_actor_vector: "Accesso non autorizzato o perdita dati."
+category: "Data Protection"
+
+justification: |
+  Backup non cifrati o non testati possono portare a perdita di dati o accessi non autorizzati in caso di incidente.
+
+mitigation:
+  treatment: "Mitigare"
+  summary: "Cifrare e testare regolarmente i backup."
+  steps: |
+    1. Utilizzare algoritmi di cifratura robusti per i backup.
+    2. Eseguire test di ripristino periodici.
+    3. Limitare l'accesso ai backup solo al personale autorizzato.
+    4. Documentare le procedure di backup e ripristino.

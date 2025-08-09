@@ -1,0 +1,17 @@
+risk_id: "RISK-003"
+asset: "Server Web"
+vulnerability: "Aggiornamenti di sicurezza mancanti."
+threat_actor_vector: "Sfruttamento di vulnerabilità note."
+category: "Patch Management"
+
+justification: |
+  La mancata applicazione di aggiornamenti di sicurezza espone il server a vulnerabilità note e facilmente sfruttabili.
+
+mitigation:
+  treatment: "Mitigare"
+  summary: "Applicare regolarmente patch e aggiornamenti di sicurezza."
+  steps: |
+    1. Monitorare i bollettini di sicurezza dei software utilizzati.
+    2. Automatizzare il processo di aggiornamento dove possibile.
+    3. Testare gli aggiornamenti in ambiente di staging prima della produzione.
+    4. Documentare le attività di patching.

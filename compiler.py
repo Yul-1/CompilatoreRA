@@ -48,23 +48,40 @@ def main(project_file):
     # Ordina i rischi per punteggio, dal più alto al più basso
     processed_risks.sort(key=lambda r: r['score'], reverse=True)
 
-    # 4. Genera il documento usando il template Jinja2
+    # 4. Genera la tabella dei rischi in Markdown usando tabulate
+    from tabulate import tabulate
+    table_headers = [
+        "ID Rischio", "Asset/Vulnerabilità", "Probabilità (1-5)", "Impatto (1-5)", "Punteggio", "Livello Rischio", "Azione Raccomandata"
+    ]
+    table_rows = [
+        [
+            r.get('risk_id', ''),
+            r.get('asset', ''),
+            r.get('probability', ''),
+            r.get('impact', ''),
+            r.get('score', ''),
+            r.get('level', ''),
+            r.get('mitigation', {}).get('summary', '')
+        ] for r in processed_risks
+    ]
+    risks_table_md = tabulate(table_rows, headers=table_headers, tablefmt="github")
+
+    # 5. Genera il documento usando il template Jinja2, passando la tabella già formattata
     env = Environment(loader=FileSystemLoader('templates/'))
     template = env.get_template('report_template.md')
-    
     output_content = template.render(
         project=project_data,
-        risks=processed_risks
+        risks=processed_risks,
+        risks_table_md=risks_table_md
     )
-    
-    # 5. Salva il file Markdown di output
+
+    # 6. Salva il file Markdown di output
     output_filename_md = f"{project_data['project_name'].replace(' ', '_')}.md"
     with open(output_filename_md, 'w') as f:
         f.write(output_content)
-        
     print(f"Report generato con successo: {output_filename_md}")
-    
-    # 6. (Opzionale) Converte automaticamente in PDF usando Pandoc
+
+    # 7. (Opzionale) Converte automaticamente in PDF usando Pandoc
     output_filename_pdf = f"{project_data['project_name'].replace(' ', '_')}.pdf"
     try:
         subprocess.run(['pandoc', output_filename_md, '-o', output_filename_pdf, '--pdf-engine=xelatex'], check=True)

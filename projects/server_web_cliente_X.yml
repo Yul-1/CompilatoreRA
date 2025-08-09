@@ -6,19 +6,19 @@ date: "08/08/2025"
 
 # Elenco dei rischi identificati per questo specifico progetto
 risks:
-  - id: "RISK-001"  # Firewall
+  - id: "RISK-001"  # Password deboli o predefinite
     probability: 5
     impact: 5
-  - id: "RISK-002"  # Backup
+  - id: "RISK-002"  # Input non validato
     probability: 4
     impact: 5
-  - id: "RISK-003"  # WAF
+  - id: "RISK-003"  # Aggiornamenti di sicurezza mancanti
     probability: 5
     impact: 4
-  - id: "RISK-005"  # Configurazione Nginx
+  - id: "RISK-004"  # Backup non cifrati o non testati
     probability: 4
     impact: 4
-  - id: "RISK-009"  # Password Policy
-    probability: 3
+  - id: "RISK-005"  # Configurazione SSH
+    probability: 4
     impact: 4
   # ... e così via per ogni altro rischio pertinente

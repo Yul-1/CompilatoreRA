@@ -1,0 +1,12 @@
+project_name: "<Nome del progetto>"
+objective: "<Obiettivo del progetto>"
+scope: "<Ambito del progetto>"
+author: "<Nome autore>"
+date: "<Data>"
+
+# Elenco dei rischi identificati per questo specifico progetto
+risks:
+  - id: "RISK-XXX"  # Inserire l'ID del rischio
+    probability: <1-5>  # Probabilità di accadimento
+    impact: <1-5>       # Impatto sul progetto
+  # Aggiungere altri rischi secondo necessità

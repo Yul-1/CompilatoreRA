@@ -1,0 +1,14 @@
+risk_id: "RISK-XXX"  # Inserire un identificativo univoco per il rischio
+asset: "<Asset coinvolto>"  # Descrivere l'asset a rischio
+vulnerability: "<Descrizione della vulnerabilità>"  # Spiegare la vulnerabilità
+threat_actor_vector: "<Vettore di minaccia>"  # Come può essere sfruttata la vulnerabilità
+category: "<Categoria>"  # Es: Access Control, Patch Management, ecc.
+
+justification: |
+  <Motivazione e impatto del rischio>
+
+mitigation:
+  treatment: "<Tipo di trattamento>"  # Es: Mitigare, Accettare, Trasferire
+  summary: "<Sintesi della mitigazione>"  # Breve descrizione della soluzione
+  steps: |
+    <Elenco puntato o numerato delle azioni di mitigazione>

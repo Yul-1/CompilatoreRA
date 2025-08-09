@@ -1,0 +1,17 @@
+risk_id: "RISK-001"
+asset: "Database Utenti"
+vulnerability: "Password deboli o predefinite."
+threat_actor_vector: "Attacco brute force o credenziali compromesse."
+category: "Access Control"
+
+justification: |
+  L'utilizzo di password deboli o predefinite espone il database utenti a rischi di accesso non autorizzato.
+
+mitigation:
+  treatment: "Mitigare"
+  summary: "Imporre password robuste e politiche di rotazione."
+  steps: |
+    1. Impostare requisiti minimi di complessità per le password.
+    2. Forzare la rotazione periodica delle password.
+    3. Bloccare gli account dopo tentativi falliti ripetuti.
+    4. Monitorare e loggare i tentativi di accesso.

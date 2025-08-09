@@ -1,0 +1,17 @@
+risk_id: "RISK-002"
+asset: "Web Application"
+vulnerability: "Input non validato."
+threat_actor_vector: "Injection di codice tramite form o API."
+category: "Input Validation"
+
+justification: |
+  L'assenza di validazione degli input permette ad un attaccante di eseguire codice malevolo o accedere a dati sensibili.
+
+mitigation:
+  treatment: "Mitigare"
+  summary: "Implementare validazione e sanitizzazione degli input."
+  steps: |
+    1. Validare tutti gli input lato server e client.
+    2. Utilizzare whitelist per i dati accettati.
+    3. Applicare escaping e sanitizzazione dove necessario.
+    4. Eseguire test di sicurezza periodici.
